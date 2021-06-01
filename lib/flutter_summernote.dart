@@ -315,7 +315,7 @@ class FlutterSummernoteState extends State<FlutterSummernote> {
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>''';
     if(widget.language != null)
     {
-      html = html + '<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/lang/summernote-' + widget.language ?? "" + '.min.js"></script>';
+      html = html + '<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/lang/summernote-' + widget.language! + '.min.js"></script>';
     }
     html = html + 
       '''</head>
@@ -327,7 +327,7 @@ class FlutterSummernoteState extends State<FlutterSummernote> {
         tabsize: 2,''';
      if(widget.language != null)
     {
-       html  = html + " lang: '" + widget.language ?? "" + "',";
+       html  = html + " lang: '" + widget.language! + "',";
     }
     html = html + '''
         toolbar: $toolbar,
