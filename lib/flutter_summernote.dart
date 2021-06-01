@@ -313,18 +313,23 @@ class FlutterSummernoteState extends State<FlutterSummernote> {
 
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>''';
-    if(this.language != 'en-EN')
+    if(this.language)
     {
       html = html + '<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/lang/summernote-' + this.language + '.min.js"></script>';
     }
-    return html + 
+    html = html + 
       '''</head>
     <body>
     <div id="summernote" contenteditable="true"></div>
     <script type="text/javascript">
       \$("#summernote").summernote({
         placeholder: 'Your text here...',
-        tabsize: 2,
+        tabsize: 2,''';
+     if(this.language)
+    {
+       html  = html + " lang: '" + this.language + "',";
+    }
+    html = html + '''
         toolbar: $toolbar,
         popover: {$popover}
       });
@@ -332,6 +337,8 @@ class FlutterSummernoteState extends State<FlutterSummernote> {
     </body>
     </html>
     ''';
+    
+    return html;
   }
 
   String _defaultPopover = """
