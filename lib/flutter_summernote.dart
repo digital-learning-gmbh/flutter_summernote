@@ -40,6 +40,7 @@ class FlutterSummernote extends StatefulWidget {
       this.hint,
       this.customToolbar,
       this.customPopover,
+      this.language: "de-DE"
       this.hasAttachment: false,
       this.showBottomToolbar: true,
       this.returnContent})
@@ -296,7 +297,7 @@ class FlutterSummernoteState extends State<FlutterSummernote> {
       popover = customPopover;
     }
 
-    return '''
+    String html = '''
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -310,8 +311,13 @@ class FlutterSummernoteState extends State<FlutterSummernote> {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-    </head>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>''';
+    if(this.language != 'en-EN')
+    {
+      html = html + '<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/lang/summernote-' + this.language + '.min.js"></script>';
+    }
+    return html + 
+      '''</head>
     <body>
     <div id="summernote" contenteditable="true"></div>
     <script type="text/javascript">
