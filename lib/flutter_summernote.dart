@@ -23,6 +23,7 @@ class FlutterSummernote extends StatefulWidget {
   final String? value;
   final double? height;
   final BoxDecoration? decoration;
+  final String? language;
   final String widthImage;
   final String? hint;
   final String? customToolbar;
@@ -40,7 +41,7 @@ class FlutterSummernote extends StatefulWidget {
       this.hint,
       this.customToolbar,
       this.customPopover,
-      this.language: "de-DE"
+      this.language,
       this.hasAttachment: false,
       this.showBottomToolbar: true,
       this.returnContent})
